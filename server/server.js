@@ -8,7 +8,6 @@ const { authMiddleware } = require("./utils/auth");
 // new GraphQL API
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-const { type } = require("os");
 // old API routes
 // const routes = require("./routes");
 
