@@ -8,8 +8,6 @@ const { authMiddleware } = require("./utils/auth");
 // new GraphQL API
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-// old API routes
-// const routes = require("./routes");
 
 const server = new ApolloServer({
   typeDefs,
@@ -18,18 +16,23 @@ const server = new ApolloServer({
 });
 
 const app = express();
-// const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const startApolloServer = async (typeDefs, resolvers) => {
-  server.applyMiddleware({ app });
+// if we're in production, serve client/build as static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+}
 
-  // if we're in production, serve client/build as static assets
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/build")));
-  }
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({ app });
 
   db.once("open", () => {
     app.listen(PORT, () => {
