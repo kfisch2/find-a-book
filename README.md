@@ -2,9 +2,9 @@
 
 ## Description
 
-Users may search for available google books and save them to their dashboard. If a user no longer wants to save a book, they may delete it.
-Check out the deployed app <a href='https://mighty-oasis-75035.herokuapp.com/' target="_blank">here!</a>
+Users may search for available google books. Once signed up and logged in, the user may save any of the books to their dashboard. Users may view and/or delete previuosly saved books by selecting "see your books" in the navigation bar.
 
+Check out the deployed app <a href='https://mighty-oasis-75035.herokuapp.com/' target="_blank">here!</a>
 
 ## Table of Contents
 
@@ -27,9 +27,7 @@ This application was built with react and styled with bootstrap. Originally this
 
 Interested in contributing? For this repository and add your style!
 
-## Tests
-
-undefined
+![mighty-oasis-75035 herokuapp com_ (1)](https://user-images.githubusercontent.com/102554319/196787844-6164d123-3394-4040-aa0e-160937747763.png)
 
 ## Questions
 
