@@ -1,4 +1,4 @@
-const { sign } = require("jsonwebtoken");
+const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -14,6 +14,7 @@ const resolvers = {
       throw new AuthenticationError("You need to log in!");
     },
   },
+
 
   Mutation: {
     login: async (parent, { email, password }) => {
@@ -31,8 +32,10 @@ const resolvers = {
     },
 
     addUser: async (parent, args) => {
-      const user = await User.create({ args });
+      const user = await User.create(args);
       const token = signToken(user);
+
+      return { user, token };
     },
 
     saveBook: async (parent, { bookData }, context) => {
