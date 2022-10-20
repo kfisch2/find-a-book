@@ -10,9 +10,7 @@ Check out the deployed app <a href='https://mighty-oasis-75035.herokuapp.com/' t
 
 - [Installation](#Installation)
 - [Technologies](#Technologies)
-- [License](#License)
 - [Contribution](#Contributing)
-- [Tests](#Tests)
 - [Questions](#Questions)
 
 ## Installation
